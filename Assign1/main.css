@@ -1,0 +1,7 @@
+#stage{
+    position: relative;
+    margin: 0px auto;
+    width: 400px;
+    height: 300px;
+    border: 1px dashed;
+}
