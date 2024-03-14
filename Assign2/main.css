@@ -1,0 +1,15 @@
+#stage{
+    position: relative;
+    margin: 0px auto;
+    width: 400px;
+    height: 300px;
+    border: 1px dashed;
+}
+button{
+    transition-duration: 0.5s;
+    background-color: #559dc9;
+}
+button:hover{
+    background-color: white;
+    color: #559dc9;
+}
