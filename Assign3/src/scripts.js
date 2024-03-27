@@ -1,6 +1,6 @@
 //Game variables
-let shipX = 200;
-let shipY = 150;
+let shipX = getRandomInt(14, 286);
+let shipY = getRandomInt(55, 245);
 let guessX = 0;
 let guessY = 0;
 let shotsRemaining = 8;
@@ -9,9 +9,10 @@ let gameState = "";
 let gameWon = false;
 
 //The game objects
-let cannon = document.querySelector("#cannon");
+//let cannon = document.querySelector("#cannon");
 let ship = document.querySelector("#ship");
 let missile = document.querySelector("#missile");
+let stateOut = document.querySelector("#gamestate")
 
 //The input and output fields
 let inputX = document.querySelector("#inputX");
@@ -19,9 +20,9 @@ let inputY = document.querySelector("#inputY");
 let output = document.querySelector("#output");
 
 //The button
-let button = document.querySelector("#button");
+let button = document.querySelector("#fire");
 button.style.cursor = "pointer";
-button.addEventListener("click", clickHandler, false);
+button.addEventListener("click", fireClickHandler, false);
 
 function render()
 {
@@ -37,7 +38,7 @@ function render()
   missile.style.top = guessY + "px";
 }
 
-function clickHandler()
+function fireClickHandler()
 {
   playGame();
 }
@@ -67,10 +68,10 @@ function playGame()
        endGame();
      }
   }
-  
+
   else
   {
-    output.innerHTML = "Miss!" + gameState;
+    stateOut.innerHTML = "Miss!" + gameState;
     
     //Check for the end of the game
     if (shotsRemaining < 1)
@@ -89,14 +90,25 @@ function endGame()
 {
   if(gameWon)
   {
-    output.innerHTML
-      = "Hit! You saved the earth!" + "<br>" 
+    stateOut.innerHTML
+      = "Hit! You sunk the ship!" + "<br>" 
       + "It only took you " + shotsMade + " shots.";
+      ship.style.visibility = "visible";
+      missile.style.width = "15px";
+      missile.style.height = "15px";
+      missile.style.background = "url(images/hit.png)";
+      render();
   }
   else
   {
-    output.innerHTML
+    stateOut.innerHTML
       = "You lost!" + "<br>" 
       + "The earth has been invaded!";
   }
+}
+
+function getRandomInt(min, max){
+  const minCeiled = Math.ceil(min);
+  const maxFloored = Math.floor(max);
+  return Math.floor(Math.random() * (maxFloored - minCeiled) + minCeiled);
 }

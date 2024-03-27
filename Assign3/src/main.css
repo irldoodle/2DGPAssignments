@@ -30,7 +30,7 @@ button:hover{
     image-rendering: pixelated;
     image-rendering: -moz-crisp-edges;
     image-rendering: crisp-edges;
-    visibility: visible;
+    visibility: hidden;
 }
 #missile{
     position:absolute;
@@ -38,7 +38,7 @@ button:hover{
     height: 10px;
     top: 30px;
     left: 30px;
-    background-image: url(images/missile.png);
+    background: url(images/missile.png);
 }
 button{
     font-family: Arial, Helvetica, sans-serif;
@@ -81,7 +81,7 @@ button:active{
   position: absolute;
   top: 270px;
   left: 140px;
-  background-image: url(../images/cannon.png);
+  background-image: url(images/cannon.png);
 }
 #instruct{
     text-align: center;
