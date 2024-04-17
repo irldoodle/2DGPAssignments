@@ -1,0 +1,135 @@
+#stage {
+    position: relative;
+    margin: 0px auto;
+    width: 400px;
+    height: 300px;
+    background-image: url(images/oceangrid_final.png);
+}
+.cell{
+    position: absolute;
+    margin: 0px;
+    padding-bottom: 0px auto;
+    padding-top: 0px auto;
+    height: 27px;
+    width: 36.5px;
+    
+}
+
+button {
+    transition-duration: 0.5s;
+    background-color: #559dc9;
+}
+
+button:hover {
+    background-color: white;
+    color: #559dc9;
+}
+
+#input {
+    position: relative;
+    text-align: center;
+    margin: 0px auto;
+    width: 405px;
+    height: 20px;
+}
+
+#destroyer {
+    position: absolute;
+    width: 20px;
+    height: 80px;
+    background-image: url(images/ShipDestroyerHull.png);
+    background-size: 75%;
+    background-repeat: no-repeat;
+    image-rendering: pixelated;
+    image-rendering: -moz-crisp-edges;
+    image-rendering: crisp-edges;
+    visibility: hidden;
+}
+#patrol{
+    position: absolute;
+    background-image: url(images/ShipPatrolHull.png);
+    width: 13px;
+    height: 55px;
+    visibility: hidden;
+}
+#battleship{
+    position: absolute;
+    background-image: url(images/ShipBattleshipHull.png);
+    width: 31px;
+    height: 105px;
+    background-size: 50%;
+    background-repeat: no-repeat;
+    image-rendering: pixelated;
+    image-rendering: crisp-edges;
+    visibility: hidden;
+}
+
+#missile {
+    position: absolute;
+    width: 30px;
+    height: 25px;
+    top: 27px;
+    left: 40px;
+    background: url(images/missile.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    image-rendering: pixelated;
+    image-rendering: crisp-edges;
+}
+
+button {
+    scale:calc(200%);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    transition-duration: 0.5s;
+    color: #fff;
+    cursor: pointer;
+
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+
+    background: -webkit-linear-gradient(top, #a3a3a3, #000);
+    background: -moz-linear-gradient(top, #a3a3a3, #000);
+    background: linear-gradient(top, #a3a3a3, #000);
+
+    -webkit-box-shadow: 5px 5px 3px rgba(0, 0, 0, 0.5);
+    -moz-box-shadow: 5px 5px 3px rgba(0, 0, 0, 0.5);
+    box-shadow: 5px 5px 3px rgba(0, 0, 0, 0.5);
+
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+}
+
+button:hover {
+    background: -webkit-linear-gradient(top, #acc7a3, #506651);
+    background: -moz-linear-gradient(top, #acc7a3, #506651);
+    background: linear-gradient(top, #acc7a3, #506651);
+}
+
+button:active {
+    background: -webkit-linear-gradient(top, #858565, #c5c9a9);
+    background: -moz-linear-gradient(top, #858565, #c5c9a9);
+    background: linear-gradient(top, #858565, #c5c9a9);
+}
+
+#cannon {
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    top: 270px;
+    left: 140px;
+    background-image: url(images/cannon.png);
+}
+
+#instruct {
+    position: relative;
+    text-align: center;
+    
+}
+
+#gamestate{
+    position: relative;
+    text-align: center;
+}
