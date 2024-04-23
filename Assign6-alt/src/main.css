@@ -1,0 +1,12 @@
+#stage{
+    position: relative;
+    margin: auto;
+    width: 400px;
+    height: 300px;
+    border: 1px dashed;
+}
+canvas{
+    position: relative;
+    margin: auto;
+    text-align: center;
+}
