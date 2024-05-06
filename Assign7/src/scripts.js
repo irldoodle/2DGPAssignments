@@ -1,6 +1,6 @@
 let ball = {
-    sprite: "images/ball.png",
-    size: 40,
+    //sprite: "images/DVD_logo.svg.png",
+    sprite: "images/turtle.png",
     posX: 100.0,
     posY: 100.0,
     velX: 5.0,
@@ -12,6 +12,8 @@ let canvas = document.querySelector('canvas');
 let ctx = canvas.getContext('2d');
 let slowButton = document.querySelector('#slowdown');
 let fastButton = document.querySelector('#speedup');
+//let rotatecounter = document.querySelector('#rotatecounter');
+//let rotateclock = document.querySelector('#rotateclock');
 let ballImage = new Image();
 ballImage.src = ball.sprite;
 let posX = getRandomInt(0, canvas.width - 40);
@@ -21,8 +23,51 @@ let velY = getRandomInt(0, 100);
 
 window.addEventListener('load', init, false);
 
-slowButton.addEventListener('click', slowBall => { velX--; velY--; }, false);
-fastButton.addEventListener('click', hasteBall => { velX++; velY++; }, false);
+/*rotateclock.addEventListener('click', (e)=>{
+    ball.velY--;
+});
+
+rotatecounter.addEventListener('click', (e)=>{
+    ball.velY++;
+});*/
+
+fastButton.addEventListener("click", (e) => {
+    if (ball.velX >= 0 && ball.velY >= 0) {
+        ball.velX++;
+        ball.velY++;
+    }
+    if (ball.velX < 0 && ball.velY < 0) {
+        ball.velX--;
+        ball.velY--;
+    }
+    if (ball.velX < 0 && ball.velY >= 0) {
+        ball.velX--;
+        ball.velY++;
+    }
+    if (ball.velX >= 0 && ball.velY < 0) {
+        ball.velX++;
+        ball.velY--;
+    }
+});
+
+slowButton.addEventListener("click", (e) => {
+    if (ball.velX >= 0 && ball.velY >= 0) {
+        ball.velX--;
+        ball.velY--;
+    }
+    if (ball.velX < 0 && ball.velY < 0) {
+        ball.velX++;
+        ball.velY++;
+    }
+    if (ball.velX < 0 && ball.velY >= 0) {
+        ball.velX++;
+        ball.velY--;
+    }
+    if (ball.velX >= 0 && ball.velY < 0) {
+        ball.velX--;
+        ball.velY++;
+    }
+});
 
 function getRandomInt(min, max) {
     const minCeiled = Math.ceil(min);
@@ -31,36 +76,29 @@ function getRandomInt(min, max) {
 }
 
 function init() {
-    setInterval(render, 1000 / 15);
+    setInterval(render, 100 / 3);
 }
 
 function render() {
     clearStage();
-    if (ball.posX < canvas.width - 40 && ball.posX > 0 && ball.posY < canvas.width - 40 && ball.posY > 0) {
-        ball.posX = ball.posX + velX;
-        ball.posY = ball.posY + velY;
-        console.log("Frame rendered");
-        ctx.drawImage(
-            ballImage, ball.posX, ball.posY
-        );
-    }
-    else {
-        bounce(ball.velX, ball.velY);
-        ball.posX = ball.posX + velX;
-        ball.posY = ball.posY + velY;
-        console.log("Frame rendered");
-        ctx.drawImage(
-            ballImage, ball.posX, ball.posY
-        );
-    }
+    console.log(ball.velX + ", " + ball.velY);
+    ball.posX += ball.velX;
+    ball.posY += ball.velY;
+    console.log("Frame rendered");
+    ctx.drawImage(
+        ballImage, ball.posX, ball.posY
+    );
+    bounce(ball.velX, ball.velY);
 }
 
 function bounce(invelX, invelY) {
-    if (ball.posX >= canvas.width - 40 || ball.posX <= 0) {
-        ball.velX = -invelX;
+    if (ball.posX >= canvas.width - ballImage.width || ball.posX <= 0) {
+        ball.velX = - invelX;
+        console.log("Side Bounce");
     }
-    if (ball.posY >= canvas.height - 40 || ball.posY <= 0) {
+    if (ball.posY >= canvas.height - ballImage.height || ball.posY <= 0) {
         ball.velY = - invelY;
+        console.log("Top/Bottom Bounce");
     }
 }
 

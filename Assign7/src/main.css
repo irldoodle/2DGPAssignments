@@ -35,6 +35,7 @@ button:active
   background: linear-gradient(top, #858565, #c5c9a9);
 }
 #stage{
-	position:relative;
-	align-self: center;
+	position: relative;
+	margin: 0px auto;
+	justify-content: center;
 }
