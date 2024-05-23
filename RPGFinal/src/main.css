@@ -1,0 +1,30 @@
+#stage{
+    position: relative;
+    margin: 0px auto;
+    justify-content: center;
+    align-items: center;
+    width: 352px;
+    height: 198px;
+}
+#mapcanvas, #spritecanvas, #animcanvas, #menucanvas, #attacksign, #options, #cursor{
+    padding: 0;
+    margin: auto;
+    display: block;
+    position: absolute;
+    scale: 2.4;
+    top: 100%;
+    image-rendering: -moz-crisp-edges;
+    image-rendering: -webkit-crisp-edges;
+    image-rendering: pixelated;
+    image-rendering: crisp-edges;
+    
+}
+
+body{
+    background-color:#414347;
+}
+
+
+
+
+
